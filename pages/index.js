@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Seo from './components/Seo';
 
-const API_KEY = '10923b261ba94d897ac6b81148314a3f';
+//const API_KEY = '5f98397aa69a13327dd1b329487d998c';
 
 export default function Home() {
 	const [movies, setMovies] = useState();
@@ -9,7 +9,8 @@ export default function Home() {
 		(async () => {
 			const { results } = await (
 				await fetch(
-					`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+					//`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}` //next.config.js에서 source
+					`/api/movies`
 				)
 			).json();
 			setMovies(results);
