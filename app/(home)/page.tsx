@@ -1,27 +1,20 @@
-"use client";
+export const metadata = {
+    title: 'Home'
+}
+const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
-import { useEffect, useState } from "react"
-
-// export const metadata = {
-//     title: 'Home'
-// }
-
-export default function Tomanto() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [movies, setMovies] = useState();
-    const getMovies = async() => {
-        const response = await fetch("https://nomad-movies.nomadcoders.workers.dev/movies");
-        const json = await response.json();
-        setMovies(json);
-        setIsLoading(false);
-    }
-    useEffect(() => {
-        getMovies();
-    }, [])
+async function getMovies() {
+    // await new Promise((res) => setTimeout(res, 5000))
+    const resp = await fetch(URL); // NextJS에서 fetch된 url을 캐싱 
+    const json = await resp.json();
+    return json;
+}
+export default async function HomePage() {
+    const movies = await getMovies();
     return (
         <div>
             <h1>Hello</h1>
-            {isLoading ? "Loading...": JSON.stringify(movies) }
+            {JSON.stringify(movies)}
         </div>
     )
 }
