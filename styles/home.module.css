@@ -1,0 +1,8 @@
+.home {
+    font-size:16px;
+    line-height: 1.4;;
+}
+.home ul {max-width:768px;display: flex;align-content: stretch;flex-wrap: wrap;justify-content: space-between;gap: 60px 10px;margin:0 auto;}
+.home ul li {width:calc(25% - 10px);}
+.home ul li img {width:100%}
+.home ul li dd {font-size:13px;}
