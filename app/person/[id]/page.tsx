@@ -1,4 +1,4 @@
-import { API_URL } from "../../page";
+import { API_URL } from "../../constants";
 import { Suspense } from "react";
 import { numToBillion } from "../../../utils/numToBillion";
 import styles from "../../../styles/person_detail.module.css";

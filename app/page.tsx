@@ -2,8 +2,8 @@
 import Link from "next/link";
 import styles from "../styles/home.module.css";
 import { numToBillion } from "../utils/numToBillion";
+import { API_URL } from "./constants";
 
-export const API_URL = "https://billions-api.nomadcoders.workers.dev/";
 
 async function getBillions() {
     const res = await fetch(API_URL);
