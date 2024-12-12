@@ -1,28 +1,28 @@
-import { API_URL } from "../../constants";
+
 import { Suspense } from "react";
 import { numToBillion } from "../../../utils/numToBillion";
 import styles from "../../../styles/person_detail.module.css";
+import { getDetail } from "../../../utils/getDetailApi";
+
 
 // fetch data
 interface IParams {
-    params : {id: string}
-}
-export async function getDetail(id: string) {
-    const res = await fetch(`${API_URL}/person/${id}`);
-    return res.json();
+    params : Promise<{id: string}>
 }
 
 // dynamic metadata
-export async function generateMetadata({params: {id}} : IParams) {
-    const gotDetail = await getDetail(id)
+export async function generateMetadata({params}: { params: Promise<{ id: string }> }) {
+    const resolvedParams = await params;
+    const gotDetail = await getDetail(resolvedParams.id)
     return {
         title: gotDetail.id + ' | Billions',
     }
 }
 
 // cont
-export default async function BillionDetail({params: {id}} : IParams) {
-    const gotDetail = await getDetail(id);
+export default async function BillionDetail({params} : IParams) {
+    const resolvedParams = await params; 
+    const gotDetail = await getDetail(resolvedParams.id);
 
     return (
         <div className={styles.person_detail}>
