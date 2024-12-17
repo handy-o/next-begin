@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+  Welcome to Tailwind Play, the official Tailwind CSS playground!
+
+  Everything here works just like it does when you're running Tailwind locally
+  with a real build pipeline. You can customize your config file, use features
+  like `@apply`, or even add third-party plugins.
+
+  Feel free to play with this example if you're just learning, or trash it and
+  start from scratch if you know enough to be dangerous. Have fun!
+-->
+<div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+    <img src="/img/beams.jpg" alt="" class="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
+    <div class="absolute inset-0 bg-[url(/img/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+    <div class="relative bg-white px-6 pb-8 pt-10 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+      <div class="mx-auto max-w-md">
+        <img src="/img/logo.svg" class="h-6" alt="Tailwind Play" />
+        <div class="divide-y divide-gray-300/50">
+          <div class="space-y-6 py-8 text-base leading-7 text-gray-600">
+            <p>An advanced online playground for Tailwind CSS, including support for things like:</p>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="11" />
+                  <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                </svg>
+                <p class="ml-4">
+                  Customizing your
+                  <code class="text-sm font-bold text-gray-900">tailwind.config.js</code> file
+                </p>
+              </li>
+              <li class="flex items-center">
+                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="11" />
+                  <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                </svg>
+                <p class="ml-4">
+                  Extracting classes with
+                  <code class="text-sm font-bold text-gray-900">@apply</code>
+                </p>
+              </li>
+              <li class="flex items-center">
+                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="11" />
+                  <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                </svg>
+                <p class="ml-4">Code completion with instant preview</p>
+              </li>
+            </ul>
+            <p>Perfect for learning how the framework works, prototyping a new idea, or creating a demo to share online.</p>
+          </div>
+          <div class="pt-8 text-base font-semibold leading-7">
+            <p class="text-gray-900">Want to dig deeper into Tailwind?</p>
+            <p>
+              <a href="https://tailwindcss.com/docs" class="text-sky-500 hover:text-sky-600">Read the docs &rarr;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="relative flex justify-center overflow-hidden bg-pink-100 py-6 *:box-border">
+    <ul class="w-full flex gap-x-10 ">
+      <li class="w-1/3 min-w-80 bg-white px-4 py-6">
+        <h3 class="mb-6 text-center text-2xl">
+          <span class="font-semibold text-gray-700">Good</span> Morning<br />
+          Mr.<span class="font-semibold text-gray-700">nicco</span>
+        </h3>
+        <div class="weather-boxes flex flex-col gap-6">
+          <div class="box overflow-hidden rounded-2xl border-2 border-black">
+            <div class="box-top bg-cyan-50 px-4 py-6">
+              <span class="bullet rounded-full border-2 border-black bg-cyan-600 px-5 py-1 text-sm text-white"> Training Game </span>
+              <p class="mb-3 mt-5 text-lg font-bold text-gray-600">Vocabulary</p>
+              <p class="text-xs">Learn new voacabulary pronuncement</p>
+            </div>
+            <div class="box-bottom flex justify-around border-t-2 border-t-black p-4 text-center">
+              <dl>
+                <dd class="font-bold text-gray-600">1</dd>
+                <dt class="text-xs">Played</dt>
+              </dl>
+              <dl>
+                <dd class="font-bold text-gray-600">90</dd>
+                <dt class="text-xs">Best Score</dt>
+              </dl>
+            </div>
+          </div>
+          <div class="box overflow-hidden rounded-2xl border-2 border-black">
+            <div class="box-top bg-red-50 px-4 py-6">
+              <span class="bullet rounded-full border-2 border-black bg-red-400 px-5 py-1 text-sm text-white"> Training Game </span>
+              <p class="mb-3 mt-5 text-lg font-bold text-gray-600">Grammer</p>
+              <p class="text-xs">Our grammer guide will help you</p>
+            </div>
+            <div class="box-bottom flex justify-around border-t-2 border-t-black p-4 text-center">
+              <dl>
+                <dd class="font-bold text-gray-600">12</dd>
+                <dt class="text-xs">Played</dt>
+              </dl>
+              <dl>
+                <dd class="font-bold text-gray-600">65</dd>
+                <dt class="text-xs">Best Score</dt>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </li>
+  
+      <li class="w-1/3 min-w-80 mt-5">
+        <div class="box bg-white p-5">
+          <h5 class="text-center mb-6 font-semibold text-lg">Correct Word</h5>
+  
+          <div class="question px-5 py-10 bg-cyan-600 text-white border-2 border-solid border-black
+          rounded-2xl mb-10 text-center text-xl font-semibold">
+            He was too shy to<br>
+            <span class="border-2 border-solid border-black rounded-2xl px-6 align-sub bg-yellow-300 text-black">···</span>
+            to strangers.
+          </div>
+          <ul class="flex flex-col gap-5">
+            <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3">
+              <label for="Talk" class="relative flex cursor-pointer flex-row items-center">
+                <input type="radio" id="Talk" name="answer_select" value="Talk" class="peer hidden" />
+                <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">A</span>
+                Talk
+                <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
+                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
+                </svg>
+              </label>
+            </li>
+            <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3">
+              <label for="Talking" class="relative flex cursor-pointer flex-row items-center">
+                <input type="radio" id="Talking" name="answer_select" value="Talking" class="peer hidden" />
+                <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">B</span>
+                Talking
+                <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
+                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
+                </svg>
+              </label>
+            </li>
+            <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3">
+              <label for="Talked" class="relative flex cursor-pointer flex-row items-center">
+                <input type="radio" id="Talked" name="answer_select" value="Talked" class="peer hidden" />
+                <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">C</span>
+                Talked
+                <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
+                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
+                </svg>
+              </label>
+            </li>
+            <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3">
+              <label for="BeTalked" class="relative flex cursor-pointer flex-row items-center">
+                <input type="radio" id="BeTalked" name="answer_select" value="Be Talked" class="peer hidden" />
+                <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">D</span>
+                Be Talked
+                <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
+                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
+                </svg>
+              </label>
+            </li>
+          </ul>
+  
+          <!-- <ul>
+            {["Talk", "Talking", "Talked", "Be Talked"].map((select, index) => {
+              <li key={index}> {select} </li>
+            } )}
+          </ul> -->
+        </div>
+  
+        <div class="float-btns">
+          <button>Continue</button>
+          <button>Retry</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+</body>
+</html>
