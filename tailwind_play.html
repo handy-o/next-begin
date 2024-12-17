@@ -1,3 +1,13 @@
+<!-- 
+-- global.css --
+@layer utilities {
+  .stroke-black {
+    @apply rounded-2xl border-2 border-black;
+  }
+}
+
+-->
+
 <!--
   Welcome to Tailwind Play, the official Tailwind CSS playground!
 
@@ -30,9 +40,9 @@
             Mr.<span class="font-semibold text-gray-700">nicco</span>
           </h3>
           <div class="weather-boxes flex flex-col gap-6">
-            <div class="box overflow-hidden rounded-2xl border-2 border-black">
+            <div class="box overflow-hidden stroke-black">
               <div class="box-top bg-cyan-50 px-4 py-6">
-                <span class="bullet rounded-full border-2 border-black bg-cyan-600 px-5 py-1 text-sm text-white"> Training Game </span>
+                <span class="bullet !rounded-full bg-cyan-600 stroke-black px-5 py-1 text-sm text-white"> Training Game </span>
                 <p class="mb-3 mt-5 text-2xl font-bold text-gray-600">Vocabulary</p>
                 <p class="text-xs">Learn new voacabulary pronuncement</p>
               </div>
@@ -47,9 +57,9 @@
                 </dl>
               </div>
             </div>
-            <div class="box overflow-hidden rounded-2xl border-2 border-black">
+            <div class="box overflow-hidden stroke-black">
               <div class="box-top bg-red-50 px-4 py-6">
-                <span class="bullet rounded-full border-2 border-black bg-red-400 px-5 py-1 text-sm text-white"> Training Game </span>
+                <span class="bullet !rounded-full bg-red-400 stroke-black px-5 py-1 text-sm text-white"> Training Game </span>
                 <p class="mb-3 mt-5 text-2xl font-bold text-gray-600">Grammer</p>
                 <p class="text-xs">Our grammer guide will help you</p>
               </div>
@@ -67,8 +77,8 @@
           </div>
   
           <div class="floating-btns absolute bottom-6 left-0 h-14 w-full">
-            <ul class="mx-6 flex h-full items-center justify-around rounded-3xl border-2 border-solid border-black bg-cyan-600">
-              <li class="cursor-pointer overflow-hidden rounded-2xl border-2 border-solid border-black bg-yellow-300 p-1">
+            <ul class="mx-6 flex h-full items-center justify-around !rounded-3xl bg-cyan-600 stroke-black">
+              <li class="cursor-pointer overflow-hidden bg-yellow-300 stroke-black p-1">
                 <svg data-slot="icon" class="w-6 fill-black" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M8.543 2.232a.75.75 0 0 0-1.085 0l-5.25 5.5A.75.75 0 0 0 2.75 9H4v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V9h1.25a.75.75 0 0 0 .543-1.268l-5.25-5.5Z"></path>
                 </svg>
@@ -89,23 +99,23 @@
   
         <li class="w-1/3 min-w-80 bg-white p-6 shadow-lg">
           <div class="area-top mb-10 flex items-center justify-between">
-            <button class="go-back h-10 w-10 rounded-[50%] border-2 border-solid border-black bg-red-400">
+            <button class="go-back h-10 w-10 !rounded-[50%] bg-red-400 stroke-black">
               <svg data-slot="icon" class="m-auto w-6" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z"></path>
               </svg>
             </button>
             <p class="progress relative h-4 w-3/5 rounded-2xl border-2 border-dashed border-gray-500 bg-gray-100">
-              <span class="now absolute left-[-2px] top-[-2px] z-10 inline-block h-[calc(100%+4px)] w-2/5 rounded-2xl border-2 border-solid border-black bg-yellow-300"></span>
+              <span class="now absolute left-[-2px] top-[-2px] z-10 inline-block h-[calc(100%+4px)] w-2/5 bg-yellow-300 stroke-black"></span>
             </p>
             <p><strong class="cursor-pointer">Skip</strong></p>
           </div>
   
-          <div class="box rounded-3xl border-2 border-solid border-gray-800 bg-white p-5">
+          <div class="box !rounded-3xl !border-gray-800 bg-white stroke-black p-5">
             <h5 class="mb-6 text-center text-lg font-semibold">Correct Word</h5>
   
-            <div class="question mb-10 rounded-2xl border-2 border-solid border-black bg-cyan-600 px-5 py-10 text-center text-xl font-semibold text-white">
+            <div class="question mb-10 bg-cyan-600 stroke-black px-5 py-10 text-center text-xl font-semibold text-white">
               He was too shy to<br />
-              <span class="rounded-2xl border-2 border-solid border-black bg-yellow-300 px-6 align-sub text-black">···</span>
+              <span class="bg-yellow-300 stroke-black px-6 align-sub text-black">···</span>
               to strangers.
             </div>
             <ul class="flex flex-col gap-5">
@@ -150,8 +160,8 @@
           </div>
   
           <div class="float-btns flex w-full justify-evenly py-8">
-            <button class="w-28 rounded-2xl border-2 border-black bg-cyan-600 py-1 text-white hover:bg-cyan-500">Continue</button>
-            <button class="w-28 rounded-2xl border-2 border-dashed border-black bg-white py-1">Retry</button>
+            <button class="w-28 bg-cyan-600 stroke-black py-1 text-white hover:bg-cyan-500">Continue</button>
+            <button class="w-28 border-dashed bg-white stroke-black py-1 hover:bg-theme-color">Retry</button>
           </div>
         </li>
   
@@ -169,25 +179,25 @@
             <p class="mb-8 text-center text-xs text-gray-500">The Secrets to be Fluent in English</p>
   
             <ul class="mb-10 grid auto-rows-fr grid-cols-2 gap-5 text-center">
-              <li class="rounded-xl border-2 border-solid border-gray-500 p-4">
+              <li class="rounded-xl border-gray-500 stroke-black p-4">
                 <dl>
                   <dt></dt>
                   <dd class="font-semibold">Full Access to Pattern Lessons</dd>
                 </dl>
               </li>
-              <li class="rounded-xl border-2 border-solid border-gray-500 p-4">
+              <li class="rounded-xl border-gray-500 stroke-black p-4">
                 <dl>
                   <dt></dt>
                   <dd class="font-semibold">Unlock All Limitaions</dd>
                 </dl>
               </li>
-              <li class="rounded-xl border-2 border-solid border-gray-500 p-4">
+              <li class="rounded-xl border-gray-500 stroke-black p-4">
                 <dl>
                   <dt></dt>
                   <dd class="font-semibold">All Topics Available</dd>
                 </dl>
               </li>
-              <li class="rounded-xl border-2 border-solid border-gray-500 p-4">
+              <li class="rounded-xl border-gray-500 stroke-black p-4">
                 <dl>
                   <dt></dt>
                   <dd class="font-semibold">Resonlized Coaching</dd>
@@ -200,7 +210,7 @@
   
               <p class="mb-10 mt-5"><strong class="text-2xl font-extrabold">5,000WON</strong> <span class="text-sm">/month </span></p>
   
-              <button class="w-full rounded-3xl border-2 border-black bg-cyan-600 py-3 text-white hover:bg-cyan-500">Start 3 Days Free Trial</button>
+              <button class="w-full !rounded-3xl bg-cyan-600 stroke-black py-3 text-white hover:bg-cyan-500">Start 3 Days Free Trial</button>
             </div>
           </div>
         </li>
