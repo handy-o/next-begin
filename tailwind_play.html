@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!--
+<!--
   Welcome to Tailwind Play, the official Tailwind CSS playground!
 
   Everything here works just like it does when you're running Tailwind locally
@@ -19,166 +11,200 @@
 <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
     <img src="/img/beams.jpg" alt="" class="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
     <div class="absolute inset-0 bg-[url(/img/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-    <div class="relative bg-white px-6 pb-8 pt-10 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
-      <div class="mx-auto max-w-md">
-        <img src="/img/logo.svg" class="h-6" alt="Tailwind Play" />
-        <div class="divide-y divide-gray-300/50">
-          <div class="space-y-6 py-8 text-base leading-7 text-gray-600">
-            <p>An advanced online playground for Tailwind CSS, including support for things like:</p>
-            <ul class="space-y-4">
-              <li class="flex items-center">
-                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="11" />
-                  <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+  
+    <!-- <div class="relative flex justify-center overflow-hidden py-6 *:box-border"> -->
+    <div class="relative">
+      <!-- <ul class="flex w-full gap-x-10 lg:flex-row flex-no-wrap"> -->
+      <ul class="m-auto grid max-w-[1024px] auto-rows-fr grid-cols-3 gap-x-1 max-lg:grid-cols-1 max-lg:place-items-center">
+        <li class="relative w-1/3 min-w-80 bg-white p-6 pb-28 shadow-lg">
+          <div class="area-top mb-10 flex items-center justify-between">
+            <p><strong class="cursor-pointer">Home</strong></p>
+            <p></p>
+            <svg data-slot="icon" class="w-6 cursor-pointer" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path clip-rule="evenodd" fill-rule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>
+          </div>
+  
+          <h3 class="mb-6 text-center text-2xl">
+            <span class="font-semibold text-gray-700">Good</span> Morning<br />
+            Mr.<span class="font-semibold text-gray-700">nicco</span>
+          </h3>
+          <div class="weather-boxes flex flex-col gap-6">
+            <div class="box overflow-hidden rounded-2xl border-2 border-black">
+              <div class="box-top bg-cyan-50 px-4 py-6">
+                <span class="bullet rounded-full border-2 border-black bg-cyan-600 px-5 py-1 text-sm text-white"> Training Game </span>
+                <p class="mb-3 mt-5 text-2xl font-bold text-gray-600">Vocabulary</p>
+                <p class="text-xs">Learn new voacabulary pronuncement</p>
+              </div>
+              <div class="box-bottom flex justify-around border-t-2 border-t-black p-4 text-center">
+                <dl>
+                  <dd class="font-bold text-gray-600">1</dd>
+                  <dt class="text-xs">Played</dt>
+                </dl>
+                <dl>
+                  <dd class="font-bold text-gray-600">90</dd>
+                  <dt class="text-xs">Best Score</dt>
+                </dl>
+              </div>
+            </div>
+            <div class="box overflow-hidden rounded-2xl border-2 border-black">
+              <div class="box-top bg-red-50 px-4 py-6">
+                <span class="bullet rounded-full border-2 border-black bg-red-400 px-5 py-1 text-sm text-white"> Training Game </span>
+                <p class="mb-3 mt-5 text-2xl font-bold text-gray-600">Grammer</p>
+                <p class="text-xs">Our grammer guide will help you</p>
+              </div>
+              <div class="box-bottom flex justify-around border-t-2 border-t-black p-4 text-center">
+                <dl>
+                  <dd class="font-bold text-gray-600">12</dd>
+                  <dt class="text-xs">Played</dt>
+                </dl>
+                <dl>
+                  <dd class="font-bold text-gray-600">65</dd>
+                  <dt class="text-xs">Best Score</dt>
+                </dl>
+              </div>
+            </div>
+          </div>
+  
+          <div class="floating-btns absolute bottom-6 left-0 h-14 w-full">
+            <ul class="mx-6 flex h-full items-center justify-around rounded-3xl border-2 border-solid border-black bg-cyan-600">
+              <li class="cursor-pointer overflow-hidden rounded-2xl border-2 border-solid border-black bg-yellow-300 p-1">
+                <svg data-slot="icon" class="w-6 fill-black" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M8.543 2.232a.75.75 0 0 0-1.085 0l-5.25 5.5A.75.75 0 0 0 2.75 9H4v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V9h1.25a.75.75 0 0 0 .543-1.268l-5.25-5.5Z"></path>
                 </svg>
-                <p class="ml-4">
-                  Customizing your
-                  <code class="text-sm font-bold text-gray-900">tailwind.config.js</code> file
-                </p>
               </li>
-              <li class="flex items-center">
-                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="11" />
-                  <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+              <li class="cursor-pointer overflow-hidden rounded-2xl p-1 hover:border-2 hover:border-solid hover:border-black hover:bg-yellow-300">
+                <svg data-slot="icon" class="w-6 cursor-pointer fill-white hover:fill-black" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M13.407 2.59a.75.75 0 0 0-1.464.326c.365 1.636.557 3.337.557 5.084 0 1.747-.192 3.448-.557 5.084a.75.75 0 0 0 1.464.327c.264-1.185.444-2.402.531-3.644a2 2 0 0 0 0-3.534 24.736 24.736 0 0 0-.531-3.643ZM4.348 11H4a3 3 0 0 1 0-6h2c1.647 0 3.217-.332 4.646-.933C10.878 5.341 11 6.655 11 8c0 1.345-.122 2.659-.354 3.933a11.946 11.946 0 0 0-4.23-.925c.203.718.478 1.407.816 2.057.12.23.057.515-.155.663l-.828.58a.484.484 0 0 1-.707-.16A12.91 12.91 0 0 1 4.348 11Z"></path>
                 </svg>
-                <p class="ml-4">
-                  Extracting classes with
-                  <code class="text-sm font-bold text-gray-900">@apply</code>
-                </p>
               </li>
-              <li class="flex items-center">
-                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="11" />
-                  <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+              <li class="cursor-pointer overflow-hidden rounded-2xl p-1 hover:border-2 hover:border-solid hover:border-black hover:bg-yellow-300">
+                <svg data-slot="icon" class="w-6 cursor-pointer fill-white hover:fill-black" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0Zm-5-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM8 9c-1.825 0-3.422.977-4.295 2.437A5.49 5.49 0 0 0 8 13.5a5.49 5.49 0 0 0 4.294-2.063A4.997 4.997 0 0 0 8 9Z"></path>
                 </svg>
-                <p class="ml-4">Code completion with instant preview</p>
               </li>
             </ul>
-            <p>Perfect for learning how the framework works, prototyping a new idea, or creating a demo to share online.</p>
           </div>
-          <div class="pt-8 text-base font-semibold leading-7">
-            <p class="text-gray-900">Want to dig deeper into Tailwind?</p>
-            <p>
-              <a href="https://tailwindcss.com/docs" class="text-sky-500 hover:text-sky-600">Read the docs &rarr;</a>
+        </li>
+  
+        <li class="w-1/3 min-w-80 bg-white p-6 shadow-lg">
+          <div class="area-top mb-10 flex items-center justify-between">
+            <button class="go-back h-10 w-10 rounded-[50%] border-2 border-solid border-black bg-red-400">
+              <svg data-slot="icon" class="m-auto w-6" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path clip-rule="evenodd" fill-rule="evenodd" d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z"></path>
+              </svg>
+            </button>
+            <p class="progress relative h-4 w-3/5 rounded-2xl border-2 border-dashed border-gray-500 bg-gray-100">
+              <span class="now absolute left-[-2px] top-[-2px] z-10 inline-block h-[calc(100%+4px)] w-2/5 rounded-2xl border-2 border-solid border-black bg-yellow-300"></span>
             </p>
+            <p><strong class="cursor-pointer">Skip</strong></p>
           </div>
-        </div>
-      </div>
+  
+          <div class="box rounded-3xl border-2 border-solid border-gray-800 bg-white p-5">
+            <h5 class="mb-6 text-center text-lg font-semibold">Correct Word</h5>
+  
+            <div class="question mb-10 rounded-2xl border-2 border-solid border-black bg-cyan-600 px-5 py-10 text-center text-xl font-semibold text-white">
+              He was too shy to<br />
+              <span class="rounded-2xl border-2 border-solid border-black bg-yellow-300 px-6 align-sub text-black">···</span>
+              to strangers.
+            </div>
+            <ul class="flex flex-col gap-5">
+              <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3 hover:bg-gray-100">
+                <label for="Talk" class="relative flex cursor-pointer flex-row items-center">
+                  <input type="radio" id="Talk" name="answer_select" value="Talk" class="peer hidden" />
+                  <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-cyan-500">A</span>
+                  Talk
+                  <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
+                    <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
+                  </svg>
+                </label>
+              </li>
+              <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3 hover:bg-gray-100">
+                <label for="Talking" class="relative flex cursor-pointer flex-row items-center">
+                  <input type="radio" id="Talking" name="answer_select" value="Talking" class="peer hidden" />
+                  <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">B</span>
+                  Talking
+                </label>
+              </li>
+              <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3 hover:bg-gray-100">
+                <label for="Talked" class="relative flex cursor-pointer flex-row items-center">
+                  <input type="radio" id="Talked" name="answer_select" value="Talked" class="peer hidden" />
+                  <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">C</span>
+                  Talked
+                </label>
+              </li>
+              <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3 hover:bg-gray-100">
+                <label for="BeTalked" class="relative flex cursor-pointer flex-row items-center">
+                  <input type="radio" id="BeTalked" name="answer_select" value="Be Talked" class="peer hidden" />
+                  <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">D</span>
+                  Be Talked
+                </label>
+              </li>
+            </ul>
+  
+            <!-- <ul>
+              {["Talk", "Talking", "Talked", "Be Talked"].map((select, index) => {
+                <li key={index}> {select} </li>
+              } )}
+            </ul> -->
+          </div>
+  
+          <div class="float-btns flex w-full justify-evenly py-8">
+            <button class="w-28 rounded-2xl border-2 border-black bg-cyan-600 py-1 text-white hover:bg-cyan-500">Continue</button>
+            <button class="w-28 rounded-2xl border-2 border-dashed border-black bg-white py-1">Retry</button>
+          </div>
+        </li>
+  
+        <li class="w-1/3 min-w-80 bg-white p-6 shadow-lg">
+          <div class="area-top mb-10 flex items-center justify-between">
+            <button class="go-back h-10 w-10 rounded-[50%] border-2 border-solid border-black bg-red-400">
+              <svg data-slot="icon" class="m-auto w-6" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"></path>
+              </svg>
+            </button>
+            <p><strong>Premium</strong></p>
+            <p></p>
+          </div>
+          <div class="box">
+            <p class="mb-8 text-center text-xs text-gray-500">The Secrets to be Fluent in English</p>
+  
+            <ul class="mb-10 grid auto-rows-fr grid-cols-2 gap-5 text-center">
+              <li class="rounded-xl border-2 border-solid border-gray-500 p-4">
+                <dl>
+                  <dt></dt>
+                  <dd class="font-semibold">Full Access to Pattern Lessons</dd>
+                </dl>
+              </li>
+              <li class="rounded-xl border-2 border-solid border-gray-500 p-4">
+                <dl>
+                  <dt></dt>
+                  <dd class="font-semibold">Unlock All Limitaions</dd>
+                </dl>
+              </li>
+              <li class="rounded-xl border-2 border-solid border-gray-500 p-4">
+                <dl>
+                  <dt></dt>
+                  <dd class="font-semibold">All Topics Available</dd>
+                </dl>
+              </li>
+              <li class="rounded-xl border-2 border-solid border-gray-500 p-4">
+                <dl>
+                  <dt></dt>
+                  <dd class="font-semibold">Resonlized Coaching</dd>
+                </dl>
+              </li>
+            </ul>
+  
+            <div class="text-center">
+              <a href="javascript:void(0);" class="text-center text-red-400 underline">Special Early Birds Offer</a>
+  
+              <p class="mb-10 mt-5"><strong class="text-2xl font-extrabold">5,000WON</strong> <span class="text-sm">/month </span></p>
+  
+              <button class="w-full rounded-3xl border-2 border-black bg-cyan-600 py-3 text-white hover:bg-cyan-500">Start 3 Days Free Trial</button>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
   
-  <div class="relative flex justify-center overflow-hidden bg-pink-100 py-6 *:box-border">
-    <ul class="w-full flex gap-x-10 ">
-      <li class="w-1/3 min-w-80 bg-white px-4 py-6">
-        <h3 class="mb-6 text-center text-2xl">
-          <span class="font-semibold text-gray-700">Good</span> Morning<br />
-          Mr.<span class="font-semibold text-gray-700">nicco</span>
-        </h3>
-        <div class="weather-boxes flex flex-col gap-6">
-          <div class="box overflow-hidden rounded-2xl border-2 border-black">
-            <div class="box-top bg-cyan-50 px-4 py-6">
-              <span class="bullet rounded-full border-2 border-black bg-cyan-600 px-5 py-1 text-sm text-white"> Training Game </span>
-              <p class="mb-3 mt-5 text-lg font-bold text-gray-600">Vocabulary</p>
-              <p class="text-xs">Learn new voacabulary pronuncement</p>
-            </div>
-            <div class="box-bottom flex justify-around border-t-2 border-t-black p-4 text-center">
-              <dl>
-                <dd class="font-bold text-gray-600">1</dd>
-                <dt class="text-xs">Played</dt>
-              </dl>
-              <dl>
-                <dd class="font-bold text-gray-600">90</dd>
-                <dt class="text-xs">Best Score</dt>
-              </dl>
-            </div>
-          </div>
-          <div class="box overflow-hidden rounded-2xl border-2 border-black">
-            <div class="box-top bg-red-50 px-4 py-6">
-              <span class="bullet rounded-full border-2 border-black bg-red-400 px-5 py-1 text-sm text-white"> Training Game </span>
-              <p class="mb-3 mt-5 text-lg font-bold text-gray-600">Grammer</p>
-              <p class="text-xs">Our grammer guide will help you</p>
-            </div>
-            <div class="box-bottom flex justify-around border-t-2 border-t-black p-4 text-center">
-              <dl>
-                <dd class="font-bold text-gray-600">12</dd>
-                <dt class="text-xs">Played</dt>
-              </dl>
-              <dl>
-                <dd class="font-bold text-gray-600">65</dd>
-                <dt class="text-xs">Best Score</dt>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </li>
-  
-      <li class="w-1/3 min-w-80 mt-5">
-        <div class="box bg-white p-5">
-          <h5 class="text-center mb-6 font-semibold text-lg">Correct Word</h5>
-  
-          <div class="question px-5 py-10 bg-cyan-600 text-white border-2 border-solid border-black
-          rounded-2xl mb-10 text-center text-xl font-semibold">
-            He was too shy to<br>
-            <span class="border-2 border-solid border-black rounded-2xl px-6 align-sub bg-yellow-300 text-black">···</span>
-            to strangers.
-          </div>
-          <ul class="flex flex-col gap-5">
-            <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3">
-              <label for="Talk" class="relative flex cursor-pointer flex-row items-center">
-                <input type="radio" id="Talk" name="answer_select" value="Talk" class="peer hidden" />
-                <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">A</span>
-                Talk
-                <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
-                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
-                </svg>
-              </label>
-            </li>
-            <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3">
-              <label for="Talking" class="relative flex cursor-pointer flex-row items-center">
-                <input type="radio" id="Talking" name="answer_select" value="Talking" class="peer hidden" />
-                <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">B</span>
-                Talking
-                <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
-                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
-                </svg>
-              </label>
-            </li>
-            <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3">
-              <label for="Talked" class="relative flex cursor-pointer flex-row items-center">
-                <input type="radio" id="Talked" name="answer_select" value="Talked" class="peer hidden" />
-                <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">C</span>
-                Talked
-                <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
-                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
-                </svg>
-              </label>
-            </li>
-            <li class="rounded-lg border-2 border-solid border-gray-400 bg-white p-3">
-              <label for="BeTalked" class="relative flex cursor-pointer flex-row items-center">
-                <input type="radio" id="BeTalked" name="answer_select" value="Be Talked" class="peer hidden" />
-                <span class="mr-3 rounded-lg border-2 border-solid border-gray-400 px-2 py-1 font-bold peer-checked:bg-red-400">D</span>
-                Be Talked
-                <svg data-slot="icon" fill="#65DC41" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute right-3 top-1 w-6 opacity-0 peer-checked:opacity-100">
-                  <path clip-rule="evenodd" fill-rule="evenodd" d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"></path>
-                </svg>
-              </label>
-            </li>
-          </ul>
-  
-          <!-- <ul>
-            {["Talk", "Talking", "Talked", "Be Talked"].map((select, index) => {
-              <li key={index}> {select} </li>
-            } )}
-          </ul> -->
-        </div>
-  
-        <div class="float-btns">
-          <button>Continue</button>
-          <button>Retry</button>
-        </div>
-      </li>
-    </ul>
-  </div>
-  
-</body>
-</html>
