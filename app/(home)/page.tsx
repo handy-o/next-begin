@@ -1,31 +1,21 @@
-import Movie from "../../components/movie";
-import styles from "../../styles/home.module.css";
-export const metadata = {
-}
-export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
+import Link from "next/link";
 
-async function getMovies() {
-    // await new Promise((res) => setTimeout(res, 5000))
-    const resp = await fetch(API_URL); // NextJS에서 fetch된 url을 캐싱 
-    const json = await resp.json();
-    return json;
-}
 export default async function HomePage() {
-    const movies = await getMovies();
     return (
-        <div className={styles.container}> 
-            {movies.map((movie) =>(
-                // <div key={movie.id}>
-                //     <img src={movie.poster_path} alt={movie.title} />
-                //     <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
-                // </div>
-                <Movie 
-                    key={movie.id} 
-                    id={movie.id}
-                    poster_path={movie.poster_path}
-                    title={movie.title}
-                />
-            ))}
+        <div className="flex flex-col items-center justify-between min-h-screen"> 
+            <div className="my-auto flex flex-col items-center gap-2 *:font-medium">
+                <span className="text-9xl">🥕</span>
+                <h1 className="text-4xl">당근</h1>
+                <h2 className="text-2xl">당근 마켓에 어서오세요!</h2>
+            </div>
+            <div className="flex flex-col items-center gap-3 w-full">
+                <Link href="/create-account" className="w-full bg-orange-500 text-white text-lg font-medium py-2.5 rounded-md text-center">시작하기</Link>
+            </div>
+            <div>
+                <span>이미 계정이 있나요?</span>
+                <Link href="/login"></Link>
+            </div>
+           
         </div>
     )
 }

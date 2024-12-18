@@ -1,5 +1,7 @@
 import "../styles/global.css"
-import Navigation from "../components/navigatgion"
+import { Inter } from "next/font/google"
+
+const inter = Inter({subsets: ["latin"]})
 
 export const metadata = {
   title: {
@@ -16,8 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Navigation/>
+      <body className={`${inter.className} bg-gray-800 text-white`}>
         {children}</body>
     </html>
   )
