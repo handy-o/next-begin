@@ -1,42 +1,24 @@
-
 import Link from "next/link";
-import styles from "../styles/home.module.css";
-import { numToBillion } from "../utils/numToBillion";
-import { API_URL } from "./constants";
 
-
-async function getBillions() {
-    const res = await fetch(API_URL);
-    const json = await res.json();
-    return json;
-}
-
-
-export default async function Home() {
-    const billions = await getBillions();
+export default function Home() {
     return (
-        <div className={styles.home}>
-            {/* <h1>I'm Home</h1> */}
-            {/* {JSON.stringify(billions)} */}
-            <ul>
-                {billions.map((billion) =>{
-                    return ( 
-                        <li key={billion.id}>
-                            <Link href={`/person/${billion.id}`}>
-                                <img src={billion.squareImage} alt="" />
-                                <dl>
-                                    <dt>{billion.name}</dt>
-                                    <dd>
-                                        {numToBillion(billion.netWorth)} Bilion
-                                        | {billion.industries}
-                                        </dd>
-                                </dl>
-                            </Link>
-                        </li>
-                    )
-                })}
-                
-            </ul>
+        <div className="flex flex-col items-center justify-between min-h-screen"> 
+            <div className="my-auto flex flex-col items-center gap-2 *:font-medium">
+                <span className="text-9xl">🥕</span>
+                <h1 className="text-4xl">당근</h1>
+                <h2 className="text-2xl">당근 마켓에 어서오세요!</h2>
+            </div>
+            <div className="flex flex-col items-center gap-3 w-full">
+                <Link href="/create-account" className="primary-btn ">시작하기</Link>
+            </div>
+
+            <div className="flex gap-2">
+                <span>이미 계정이 있나요?</span>    
+                <Link href="/login" className="doLogin hover:underline underline-offset-4">
+                    로그인
+                </Link>
+            </div>
+           
         </div>
-    ) 
+    )
 }
