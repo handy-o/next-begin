@@ -31,9 +31,7 @@ export default function LogIn() {
         <FormInput
           name="email"
           type="email"
-          placeholder="Email"
-          required
-          errors={[]}
+          placeholder
         />
         <FormInput
           name="password"
