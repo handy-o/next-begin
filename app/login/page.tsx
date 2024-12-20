@@ -1,13 +1,14 @@
 "use client";
 
-import FormButton from "@/components/form-btn";
-import FormInput from "@/components/form-input";
+import FormButton from "@/components/button";
+import FormInput from "@/components/input";
 import SocialLogin from "@/components/social-login";
 import { useActionState } from "react";
-import { handleForm } from "./actions";
+import { login } from "./actions";
+import { PASSWORD_MIN_LENGTH } from "../../lib/constants";
 
 export default function LogIn() {
-  const [state, action] = useActionState(handleForm, null);
+  const [state, action] = useActionState(login, null);
 
   // 기존 백엔드 작업
   // const onClick = async () => {
@@ -31,14 +32,15 @@ export default function LogIn() {
         <FormInput
           name="email"
           type="email"
-          placeholder
+          errors={state?.fieldErrors.email ?? []}
         />
         <FormInput
           name="password"
           type="password"
           placeholder="Password"
           required
-          errors={state?.errors ?? []}
+          errors={state?.fieldErrors.password ?? []}
+          minLength={PASSWORD_MIN_LENGTH}
         />
         <FormButton text="Log in" />
       </form>

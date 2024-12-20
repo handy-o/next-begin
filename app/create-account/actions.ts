@@ -1,5 +1,6 @@
 "use server";
 import {z} from "zod";
+import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from "../../lib/constants"; // 소문자, 대문자, 숫자, 특수문자 일부를 모두 포함하는지 검사
 
 
 // 특정 단어 포함 여부 검증
@@ -8,10 +9,8 @@ import {z} from "zod";
 // }
 // change arrow function
 const checkUsername = (username: string) => !username.includes("potato")
-// 소문자, 대문자, 숫자, 특수문자 일부를 모두 포함하는지 검사
-const passwordRegex = new RegExp(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*?[#?!@$^&*-]).+$/
-);
+
+
 
 // 비번 === 비번확인 검증
 const checkPasswords = ({password, confirm_password}: {password:string, confirm_password:string}) => password === confirm_password
@@ -29,8 +28,8 @@ const formSchema = z.object({
     // .transform(username => `바꿀문자 ${username}`)
     .refine(checkUsername, "No potatoes allowed!"),
     email: z.string().email().toLowerCase(),
-    password: z.string().min(4).regex(passwordRegex, "A password mush have lowercase, UPPERCASE, a number and special characters."),
-    confirm_password: z.string().min(4)
+    password: z.string().min(PASSWORD_MIN_LENGTH).regex(PASSWORD_REGEX, "A password mush have lowercase, UPPERCASE, a number and special characters."),
+    confirm_password: z.string().min(PASSWORD_MIN_LENGTH)
 })
 .refine(checkPasswords, {
     message : "Both passwords should be the same!",
