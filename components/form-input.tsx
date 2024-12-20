@@ -1,4 +1,5 @@
 interface formInputProps {
+    defaultValue: string,
     name: string,
     type: string,
     placeholder: string,
@@ -6,12 +7,13 @@ interface formInputProps {
     errors: string[],
 }
 
-export default function FormInput({name, type, placeholder, required, errors}: formInputProps) {
+export default function FormInput({defaultValue, name, type, placeholder, required, errors = []}: formInputProps) {
     return (
         <div>
             {/* 14 버전 : refresh 안되고 input 에 값 남아있음
                 15 버전 : refresh 되면서 input 다 날아감 */}
             <input 
+                defaultValue={defaultValue}
                 name={name}
                 type={type}
                 placeholder={placeholder}
@@ -20,7 +22,7 @@ export default function FormInput({name, type, placeholder, required, errors}: f
 
             {errors.map((error, index) => (
                 <span key={index} className="text-red-500 font-medium">
-                    {error}
+                    {error}<br/>
                 </span>
             ))}
        </div>

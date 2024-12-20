@@ -15,23 +15,25 @@ import { KeyIcon } from "@heroicons/react/24/solid";
 
 export default function Home() {
    const [state, action] = useActionState(handleForm, null);
+    // console.log('-------ssstate', state)
+
     return (
-        <main className="w-80 *:box-border p-2 m-auto mt-6">
+        <main className="w-96 *:box-border p-2 m-auto mt-6">
             <h1 className="text-center mb-8"><FireIcon className="m-auto h-10 w-10 text-red-500" /></h1>
 
             <section>
                 <form action={action} className="flex flex-col gap-4 text-sm">
                     <div className="relative">
                         <EnvelopeIcon className="absolute left-4 top-[9px] h-4 w-4 text-gray-500" />
-                        <FormInput name="email" type="text" placeholder="Email" required errors={[]} />
+                        <FormInput defaultValue={state?.data.email} name="email" type="text" placeholder="Email" required errors={state?.errors?.fieldErrors.email}/>
                     </div>
                     <div className="relative">
                         <UserIcon  className="absolute left-4 top-[9px] h-4 w-4 text-gray-500" />
-                        <FormInput name="username" type="text" placeholder="Username" required errors={[]} />
+                        <FormInput defaultValue={state?.data.username} name="username" type="text" placeholder="Username" required errors={state?.errors?.fieldErrors.username} />
                     </div>
                     <div className="relative">
                         <KeyIcon   className="absolute left-4 top-[9px] h-4 w-4 text-gray-500" />
-                        <FormInput name="password" type="text" placeholder="Password" required errors={state?.errors ?? []} />
+                        <FormInput defaultValue={state?.data.password} name="password" type="password" placeholder="Password" required errors={state?.errors?.fieldErrors.password} />
                     </div>
         
                     <FormButton text="Log in"/>
