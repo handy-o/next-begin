@@ -1,27 +1,74 @@
-# 12/20(금) 과제
+# 12/23(월) 과제
 
-### 목표
-1. Zod 를 활용하여 server action의 form 을 검증
-2. 검증이 성공적이면 성공 메시지를 아닐 경우 에러를 유저에게 표기
-3. 검증 제약 조건
-    - 오직 "@zod.com" 이메일만 허용 된다.
-    - 유저명은 5 글자 이상이어야 한다.
-    - 비밀번호는 10 글자 이상이어야 하며, 반드시 1개 이상의 숫자를 포함해야 한다.
+### npm 설치
 
+1. npm install prisma - 프리즈마 설치
+2. npx prisma init - prisma > schema.prisma 파일 생성
+3. npx prisma migrate dev - npx prisma generate도 같이 실행되어 create Client
+4. npx prisma studio - 시각화
 
-### 특이사항
-1. input에 입력한 값들이 사라집니다.
-    - 원인: NextJs 15버전 이상에서의 form 동작 방식에 의해 초기화된다고 보았습니다.
-    - 생각한 방안: if(!result.success) 로 return해 주는 값에 'data'를 추가하여 state로 받아온 값을 defaultValue에 넣어주었습니다. 
-
-2. useFormState가 useActionState 로 변경되었습니다.
-    - 8~9일차에서도 useFormState를 못쓰고 useActionState로 사용했습니다.
-    - import { useFormState } from "react-dom";
-    - import { useActionState } from "react";
-
---------
+---
 
 ### 강의
-- #6.0 ~ #6.9
 
+- #7.0 ~ #7.6
 
+### 특이사항 기록
+
+#### 1. lib > db.ts
+
+1-1. 에러 안남 db.tweet
+
+```
+const newTweet = await db.tweet.create({
+    data: {
+        token: "123124",
+        user: {
+        connect: {
+            id: 2,
+        },
+        },
+    },
+});
+```
+
+1-2. 에러남 db.like
+
+```
+const newTweet = await db.like.create({
+    data: {
+        token: "123124",
+        user: {
+        connect: {
+            id: 2,
+        },
+        },
+    },
+});
+```
+
+#### 원인! like 모델에는 userId와 tweetId가 필수로 들어가야한다.
+
+```
+const newTweet = await db.like.create({
+    data: {
+        token: "123124",
+        user: {
+            connect: {
+                id: 2,
+            },
+        },
+        tweet: {             // 해결!
+            connect: {
+                id: 2
+            },
+        },
+    },
+});
+```
+
+#### 2. `.env`
+
+gitignore에 포함되어서 보이지 않음
+하지만 학습용이니 필요한 부분만 적자면,,
+`DATABASE_URL="file:./database.db"`
