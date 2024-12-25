@@ -8,10 +8,6 @@ import getSession from "../../lib/session";
 
 
 // 특정 단어 포함 여부 검증
-// function checkUsername(username: string) {
-//     return !username.includes("potato")
-// }
-// change arrow function
 const checkUsername = (username: string) => !username.includes("potato")
 
 
@@ -19,36 +15,6 @@ const checkUsername = (username: string) => !username.includes("potato")
 // 비번 === 비번확인 검증
 const checkPasswords = ({password, confirm_password}: {password:string, confirm_password:string}) => password === confirm_password
 
-// check if username is taken
-const checkUniqueUsername = async (username: string) => {
-    const user = await db.user.findUnique({
-        where: {
-            username: username,
-        },
-        select: {
-            id: true,
-        }
-    })
-    // if(user) {
-    //     return false
-    // } else {
-    //     return true
-    // }
-    return !Boolean(user)
-}
-
-// check if the email is already used
-const checkUniqueEmail = async (email: string) => {
-    const user = await db.user.findUnique({
-        where: {
-            email: email
-        },
-        select: {
-            id: true,
-        }
-    })
-    return !Boolean(user)
-}
 
 // 조건 스키마
 const formSchema = z.object({
@@ -60,15 +26,55 @@ const formSchema = z.object({
     .max(10, "That's too long!")
     .toLowerCase()
     .trim()
-    // .transform(username => `바꿀문자 ${username}`)
-    .refine(checkUsername, "No potatoes allowed!")
-    .refine(checkUniqueUsername, "This username is already taken"),
+    .refine(checkUsername, "No potatoes allowed!"),
 
-    email: z.string().email().toLowerCase().refine(checkUniqueEmail, "There is an account already registrated with that email"),
+    email: z.string().email().toLowerCase(),
     password: z.string().min(PASSWORD_MIN_LENGTH)
     // .regex(PASSWORD_REGEX, "A password mush have lowercase, UPPERCASE, a number and special characters.")
     ,
     confirm_password: z.string().min(PASSWORD_MIN_LENGTH)
+})
+.superRefine(async ({username}, ctx) => {
+    const user = await db.user.findUnique({
+        where: {
+            username
+        },
+        select: {
+            id: true
+        }
+    })
+    if(user) {
+        ctx.addIssue({
+            // issue에는 code가 필요하다
+            code: 'custom',
+            message: "This username is already exist" ,
+            // 이 에러메세지는 formErrors로 이동했음 
+            // 왜냐하면 zod는 왜 원인인지 모름
+            // => 화면에 보여지는 작업 해줘야함 path로 알려줌
+            path: ["username"],
+            fatal: true // fatal과 NEVER이 있으면 다른 refine이 있어도, 멈추고 더 실행되지않음
+        })
+        return z.NEVER;
+    }
+})
+.superRefine(async ({email}, ctx) => {
+    const user = await db.user.findUnique({
+        where: {
+            email
+        },
+        select: {
+            id: true
+        }
+    })
+    if(user) {
+        ctx.addIssue({
+            code: 'custom',
+            message: "This email is already exist" ,
+            path: ["email"],
+            fatal: true 
+        })
+        return z.NEVER;
+    }
 })
 .refine(checkPasswords, {
     message : "Both passwords should be the same!",
