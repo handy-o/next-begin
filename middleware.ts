@@ -1,27 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import getSession from "./lib/session";
-import db from "./lib/db";
 
-export async function middleware(request: NextRequest) { // 이름은 꼭 middleware
-    const pathname = request.nextUrl.pathname;
-    if(pathname === "/") {
-        // set cookie
-        const response = NextResponse.next(); // request 가로채서 
-        response.cookies.set("middleware-cookie", "hello!") // 정보를 추가하여 수정한 뒤에
-        return response; // 그 request를 user에게 제공
-    }
-    if(pathname  === "/profile") {
-        return Response.redirect(new URL("/", request.url))
-    }
-
-    // await db.user.findMany({}); // Edge runtime 이슈로 실행되지 않고 서버 에러 발생
-
+interface Routes {
+    [key:string] : boolean;
+}
+// array보다 object가 검색이 좀더 빠름
+const publicOnlyUrls: Routes = {
+    "/": true,
+    "/login": true,
+    "/sms" : true,
+    "/create-account" : true
 }
 
+export async function middleware(request: NextRequest) {
+    const session = await getSession();
+    // const exists = publicOnlyUrls["/login"]; 
+    const exists = publicOnlyUrls[request.nextUrl.pathname]; // object에 값이 있는지 체크하는게 배열검색보다 빠름
+    
+    if(!session.id) { // 비로그인 상태인데,
+        if(!exists) { // publicUrl이 아닌 곳에 접속한 경우 허용하지않고 redirect 필요
+            return NextResponse.redirect(new URL("/", request.url))
+        } 
+    } else { // 로그인이 이미 된 상태인데,
+        if(exists) { // 퍼블릭한 페이지로 접속한다면 /products로 이동
+            return NextResponse.redirect(new URL("/products", request.url))
+        }
+    }
+}
 
-// 이름은 꼭 config 
 export const config = {
-    matcher: ["/", "/profile", "/create-account", "/user/:path*"]
-    // matcher: ["/((?!api|_next/static|_next/image|favicon.ico|logo.svg).*)"]
+    matcher: ["/((?!_next/static|_next/image|favicon.ico|logo.svg).*)"]
 }
