@@ -1,6 +1,7 @@
 "use server";
 import {z} from "zod";
 import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from "../../lib/constants"; // 소문자, 대문자, 숫자, 특수문자 일부를 모두 포함하는지 검사
+import db from "../../lib/db";
 
 
 // 특정 단어 포함 여부 검증
@@ -15,6 +16,37 @@ const checkUsername = (username: string) => !username.includes("potato")
 // 비번 === 비번확인 검증
 const checkPasswords = ({password, confirm_password}: {password:string, confirm_password:string}) => password === confirm_password
 
+// check if username is taken
+const checkUniqueUsername = async (username: string) => {
+    const user = await db.user.findUnique({
+        where: {
+            username: username,
+        },
+        select: {
+            id: true,
+        }
+    })
+    // if(user) {
+    //     return false
+    // } else {
+    //     return true
+    // }
+    return !Boolean(user)
+}
+
+// check if the email is already used
+const checkUniqueEmail = async (email: string) => {
+    const user = await db.user.findUnique({
+        where: {
+            email: email
+        },
+        select: {
+            id: true,
+        }
+    })
+    return !Boolean(user)
+}
+
 // 조건 스키마
 const formSchema = z.object({
     username: z.string({
@@ -26,9 +58,13 @@ const formSchema = z.object({
     .toLowerCase()
     .trim()
     // .transform(username => `바꿀문자 ${username}`)
-    .refine(checkUsername, "No potatoes allowed!"),
-    email: z.string().email().toLowerCase(),
-    password: z.string().min(PASSWORD_MIN_LENGTH).regex(PASSWORD_REGEX, "A password mush have lowercase, UPPERCASE, a number and special characters."),
+    .refine(checkUsername, "No potatoes allowed!")
+    .refine(checkUniqueUsername, "This username is already taken"),
+
+    email: z.string().email().toLowerCase().refine(checkUniqueEmail, "There is an account already registrated with that email"),
+    password: z.string().min(PASSWORD_MIN_LENGTH)
+    // .regex(PASSWORD_REGEX, "A password mush have lowercase, UPPERCASE, a number and special characters.")
+    ,
     confirm_password: z.string().min(PASSWORD_MIN_LENGTH)
 })
 .refine(checkPasswords, {
@@ -43,13 +79,18 @@ export async function createAccount(prevState:any, formData: FormData) {
         password: formData.get("password"),
         confirm_password: formData.get("confirm_password"),
     }
-    // console.log('data', data)
+    //console.log('data', data)
 
-    const result = formSchema.safeParse(data);
+    const result = await formSchema.safeParseAsync(data);
+    console.log('result', result)
     if(!result.success) {
         console.log('result.error.flatten', result.error.flatten())
         return result.error.flatten();
     } else {
-        console.log(result.data)
+        
+        // hash password
+        // save the user to db
+        // log the user in
+        // redirect "/home"
     }
 }
