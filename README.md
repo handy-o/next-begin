@@ -1,74 +1,43 @@
-# 12/23(월) 과제
+# 12/24~25(화~수) 과제
 
 ### npm 설치
 
-1. npm install prisma - 프리즈마 설치
-2. npx prisma init - prisma > schema.prisma 파일 생성
-3. npx prisma migrate dev - npx prisma generate도 같이 실행되어 create Client
-4. npx prisma studio - 시각화
+1. npm install bcrypt - bcrypt 설치
+2. npm install @types/bcrypt - bcrypt types
+3. npm install iron-session - iron-session 설치
+
+### 관련 링크
+
+1. https://www.youtube.com/watch?v=67UwxR3ts2E - 해시함수
+2. https://www.youtube.com/watch?v=tosLBcAX1vk - 세션vs토큰vs쿠키
+3. https://1password.com/password-generator - 비번생성
 
 ---
 
 ### 강의
 
-- #7.0 ~ #7.6
+- #8.0 ~ #8.13
 
 ### 특이사항 기록
 
-#### 1. lib > db.ts
+#### 1. await cookies()
 
-1-1. 에러 안남 db.tweet
+##### 원인! 비동기 실행에서 Next의 cookies()는 읽을 수 있는 요소로 리턴되어야하는데, await 없이는 Promise가 반환되어서 타입에 맞지 않음
 
-```
-const newTweet = await db.tweet.create({
-    data: {
-        token: "123124",
-        user: {
-        connect: {
-            id: 2,
-        },
-        },
-    },
-});
-```
-
-1-2. 에러남 db.like
+1-1. 에러남 cookies()
 
 ```
-const newTweet = await db.like.create({
-    data: {
-        token: "123124",
-        user: {
-        connect: {
-            id: 2,
-        },
-        },
-    },
-});
+const cookie = await getIronSession(cookies(), { ~~ } )
 ```
 
-#### 원인! like 모델에는 userId와 tweetId가 필수로 들어가야한다.
+1-2. 에러 안남 await cookies()
 
 ```
-const newTweet = await db.like.create({
-    data: {
-        token: "123124",
-        user: {
-            connect: {
-                id: 2,
-            },
-        },
-        tweet: {             // 해결!
-            connect: {
-                id: 2
-            },
-        },
-    },
-});
+const cookie = await getIronSession(await cookies(), { ~~ } )
 ```
 
-#### 2. `.env`
+#### 2. 테스트계정
 
-gitignore에 포함되어서 보이지 않음
-하지만 학습용이니 필요한 부분만 적자면,,
-`DATABASE_URL="file:./database.db"`
+- username : abcde (5글자 이상)
+- email : abcde@zod.com (@zod만 허용)
+- password : 123qweasd1 (10글자 이상)

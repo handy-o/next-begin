@@ -1,9 +1,9 @@
 "use client";
 
 import { useActionState } from "react";
-import { handleForm } from "./log-in/action";
-import Input from "../components/form-input";
-import Button from "../components/form-btn";
+import { handleForm } from "./action";
+import Input from "../../components/form-input";
+import Button from "../../components/form-btn";
 
 import { FireIcon } from "@heroicons/react/24/solid";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";

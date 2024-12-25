@@ -7,7 +7,7 @@ interface formInputProps {
     errors: string[],
 }
 
-export default function FormInput({defaultValue, name, type, placeholder, required, errors = []}: formInputProps) {
+export default function Input({defaultValue, name, type, placeholder, required, errors = []}: formInputProps) {
     return (
         <div>
             {/* 14 버전 : refresh 안되고 input 에 값 남아있음
