@@ -32,6 +32,7 @@ export default function LogIn() {
         <FormInput
           name="email"
           type="email"
+          placeholder="email"
           errors={state?.fieldErrors.email ?? []}
         />
         <FormInput
