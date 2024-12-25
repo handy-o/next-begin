@@ -1,7 +1,11 @@
 "use server";
+import bcrypt from "bcrypt";
 import {z} from "zod";
 import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from "../../lib/constants"; // 소문자, 대문자, 숫자, 특수문자 일부를 모두 포함하는지 검사
 import db from "../../lib/db";
+import { getIronSession } from "iron-session";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 
 // 특정 단어 포함 여부 검증
@@ -87,10 +91,31 @@ export async function createAccount(prevState:any, formData: FormData) {
         console.log('result.error.flatten', result.error.flatten())
         return result.error.flatten();
     } else {
-        
-        // hash password
+        // #8.2  hash password
+        const hashedPassword = await bcrypt.hash(result.data.password, 12);
         // save the user to db
-        // log the user in
+        const user = await db.user.create({
+            data : {
+                username: result.data.username,
+                email: result.data.email,
+                password: hashedPassword
+            },
+            select :{ // 필요한 것만 db에서 받아오기 
+                id: true
+            }
+        })
+
+     
+        // #8.3  log the user in
+        const cookieStore = await cookies();
+        const cookie = await getIronSession(cookieStore, {
+            cookieName: "delicious-carrot", 
+            password: process.env.COOKIE_PASSWORD!
+        })
+        // @ts-ignore
+        cookie.id = user.id // db의 user select된 id를 cookie.id에 넣어주고
+        await cookie.save() // 저장
         // redirect "/home"
+        redirect("/profile");
     }
 }

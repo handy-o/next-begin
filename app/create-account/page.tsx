@@ -10,7 +10,6 @@ import { PASSWORD_MIN_LENGTH } from "../../lib/constants";
 export default function CreateAccount() {
   const [state, action] = useActionState(createAccount, null);
   // action == trigger == dispatch
-  console.log("sssstate" , state)
   return (
     <div className="flex flex-col gap-10 py-8 px-6">
       <div className="flex flex-col gap-2 *:font-medium">
