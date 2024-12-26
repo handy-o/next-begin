@@ -1,3 +1,6 @@
 # NextJS Introduction
 
-# default branch를 main에서 submit_challange로 변경하면서 혹시나 main copy
+User의
+id 2
+dyhan9420@gmail.com
+1212
