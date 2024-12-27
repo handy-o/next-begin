@@ -20,7 +20,7 @@ export default function ListProduct({
         <Link href={`/products/${id}`} className="flex gap-5">
             <div className="relative size-28 rounded-md overflow-hidden">
                 {/* <Image width={200} height={200} src={photo} alt={title}/>  */}
-                <Image fill src={photo} alt={title} quality={100}/> 
+                <Image fill src={photo} alt={title} quality={100} className="object-cover"/> 
                 {/* <img> 보다 <Image> 컴포넌트를 권장 */}
             </div>
             <div className="flex flex-col gap-1 *:text-white">
