@@ -4,7 +4,7 @@ const db = new PrismaClient();
 
 async function main() {
     const users = await db.user.findMany();
-    console.log('users', users);
+    // console.log('users', users);
   }
   main();
 async function test2() {
