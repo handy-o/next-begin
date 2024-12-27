@@ -19,7 +19,7 @@ export default function Home() {
     // console.log('-------ssstate', state)
 
     return (
-        <main className="w-96 *:box-border p-2 m-auto mt-6">
+        <main className="w-96 *:box-border p-2 m-auto mt-16">
             <h1 className="text-center mb-8"><FireIcon className="m-auto h-10 w-10 text-red-500" /></h1>
 
             <section>

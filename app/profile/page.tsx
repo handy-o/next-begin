@@ -28,7 +28,7 @@ export default async function Profile() {
         redirect("/")
     }
     return (
-        <div className="w-96 *:box-border p-2 m-auto mt-6 text-center">
+        <div className="w-96 *:box-border p-2 m-auto mt-16 text-center ">
              <h1 className="text-2xl">Welcome! {user?.username}</h1>
              
              <ul className="text-left mt-4 bg-white rounded-xl p-6">

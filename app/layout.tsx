@@ -1,3 +1,4 @@
+import Navigation from "../components/navigation"
 import "../styles/global.css"
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className="bg-gray-50">
         {children}
+        <Navigation/>
       </body>
     </html>
   )

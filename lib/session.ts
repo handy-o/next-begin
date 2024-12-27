@@ -6,7 +6,7 @@ interface SessionContent {
 }
 
 export default async function getSession() {
-    // console.log(cookies());
+    // console.log('쿠키', cookies());
     return getIronSession<SessionContent>(await cookies(), {
         cookieName: "merry_chrestmas", 
         password: process.env.COOKIE_PASSWORD!

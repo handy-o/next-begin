@@ -1,42 +1,23 @@
-# 12/24~25(화~수) 과제
-
-### npm 설치
-
-1. npm install bcrypt - bcrypt 설치
-2. npm install @types/bcrypt - bcrypt types
-3. npm install iron-session - iron-session 설치
-
-### 관련 링크
-
-1. https://www.youtube.com/watch?v=67UwxR3ts2E - 해시함수
-2. https://www.youtube.com/watch?v=tosLBcAX1vk - 세션vs토큰vs쿠키
-3. https://1password.com/password-generator - 비번생성
-
----
+# 12/26~27(목~금) 과제
 
 ### 강의
 
-- #8.0 ~ #8.13
+- #10.0 ~ #10.10
 
 ### 특이사항 기록
 
-#### 1. await cookies()
+#### 1. tweet database ?
 
-##### 원인! 비동기 실행에서 Next의 cookies()는 읽을 수 있는 요소로 리턴되어야하는데, await 없이는 Promise가 반환되어서 타입에 맞지 않음
+- `/ 페이지에는 데이터베이스에 있는 모든 트윗의 목록이 표시되어야 합니다.`
+- 이 부분의 데이터가 어떤것인지 잘 모르겠어서 임시로 넣어보았습니다.
 
-1-1. 에러남 cookies()
+#### 2. 아쉬운 부분 (추가작업예정)
 
-```
-const cookie = await getIronSession(cookies(), { ~~ } )
-```
+- action.ts로 분리
+- 스켈레톤 추가
+- 디자인 수정
 
-1-2. 에러 안남 await cookies()
-
-```
-const cookie = await getIronSession(await cookies(), { ~~ } )
-```
-
-#### 2. 테스트계정
+#### 테스트계정
 
 - username : abcde (5글자 이상)
 - email : abcde@zod.com (@zod만 허용)

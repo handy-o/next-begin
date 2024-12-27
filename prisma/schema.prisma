@@ -13,6 +13,7 @@ model User {
   password   String
   email      String?  @unique
   bio        String?
+  avatar     String   @default("./default_avatar.png")
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   TweetToken Tweet[]
@@ -20,13 +21,15 @@ model User {
 }
 
 model Tweet {
-  id         Int      @id @default(autoincrement())
-  token      String   @unique
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId     Int
-  LikeToken  Like[]
+  id           Int      @id @default(autoincrement())
+  token        String   @unique
+  contents_txt String   @default("default text")
+  contents_img String?  @default("default_image.png")
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       Int
+  LikeToken    Like[]
 }
 
 model Like {
