@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 import db from "../../../lib/db";
-import Link from "next/link";
 import Image from "next/image";
-import { UserIcon } from "@heroicons/react/24/outline";
 import { toLocaleDateStr, toLocaleTimeStr } from "../../../lib/utils";
+import Link from "next/link";
 
 async function getTweet(id: number) {
     const tweet = await db.tweet.findUnique({
@@ -27,7 +26,8 @@ async function getTweet(id: number) {
 export default async function tweetDetail({params} : {
     params: {id: string}
 }) {
-    const id = Number(params.id)
+    console.log('params',  params)
+    const id = Number(params.id);
     if(isNaN(id)) notFound();
     const tweet = await getTweet(id);
     if(!tweet) notFound();
@@ -35,7 +35,6 @@ export default async function tweetDetail({params} : {
     return (
         <main className="mt-16 px-6">
             <div className="flex gap-4 border-b-solid border-b-2 pb-5">
-                
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-2 align-middle">
                         <p className="rounded-xl overflow-hidden">
@@ -52,7 +51,10 @@ export default async function tweetDetail({params} : {
                         {toLocaleTimeStr(tweet.updated_at)} {toLocaleDateStr(tweet.updated_at)}
                     </p>
                 </div>
-                </div>
+            </div>
+            <div>
+                <Link href="/">목록으로</Link>
+            </div>
         </main>
     );
 }

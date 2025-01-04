@@ -1,10 +1,10 @@
 interface formInputProps {
-    defaultValue: string,
+    defaultValue?: string,
     name: string,
     type: string,
     placeholder: string,
     required: boolean,
-    errors: string[],
+    errors?: string[],
 }
 
 export default function Input({defaultValue, name, type, placeholder, required, errors = []}: formInputProps) {
