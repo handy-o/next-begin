@@ -40,7 +40,7 @@ export default function ProductList( {initialProducts}: ProductListProps) {
                     }
                     setIsLoading(false)
                 }
-                console.log('entries', entries[0].isIntersecting)
+                //console.log('entries', entries[0].isIntersecting)
             },
             {
                 threshold: 1.0, // 얼만큼 보여야 true로 할지 0.5 절반만 보여도 true, (0~1)
@@ -63,14 +63,14 @@ export default function ProductList( {initialProducts}: ProductListProps) {
             ))}
 
             {/* 무한 스크롤링으로 변경 */}
-            {!isLastPage ?
+            {/* {!isLastPage ?
             <span 
                 ref={trigger}
                 style={{marginTop: `${page + 1 * 300}vh`}} // 데이터가 적어서 임시로 설정
                 className="mb-96 text-sm font-semibold bg-orange-500 w-fit mx-auto px-3 py-2 rounded-md hover:opacity-90 active:scale-95">
                 {isLoading ? "로딩 중" : "Load more"}
             </span>
-            : null  }
+            : null  } */}
         </div>
     )
 }

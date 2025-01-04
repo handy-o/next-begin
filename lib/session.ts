@@ -6,7 +6,7 @@ interface SessionContent {
 }
 
 export default async function getSession() {
-    console.log(cookies()); // 콘솔에서 쿠키 확인 가능
+    //console.log(cookies()); // 콘솔에서 쿠키 확인 가능
     return getIronSession<SessionContent>(await cookies(), {
         cookieName: "delicious-carrot", 
         password: process.env.COOKIE_PASSWORD!

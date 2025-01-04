@@ -1,10 +1,10 @@
 "use server";
 import bcrypt from "bcrypt";
 import {z} from "zod";
-import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from "../../lib/constants"; // 소문자, 대문자, 숫자, 특수문자 일부를 모두 포함하는지 검사
-import db from "../../lib/db";
+import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from "../../../lib/constants"; // 소문자, 대문자, 숫자, 특수문자 일부를 모두 포함하는지 검사
+import db from "../../../lib/db";
 import { redirect } from "next/navigation";
-import getSession from "../../lib/session";
+import getSession from "../../../lib/session";
 
 
 // 특정 단어 포함 여부 검증
@@ -91,7 +91,7 @@ export async function createAccount(prevState:any, formData: FormData) {
     //console.log('data', data)
 
     const result = await formSchema.safeParseAsync(data);
-    console.log('result', result)
+    //console.log('result', result)
     if(!result.success) {
         console.log('result.error.flatten', result.error.flatten())
         return result.error.flatten();
