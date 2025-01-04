@@ -39,7 +39,7 @@ async function test(){
             phone: "123123123",
         }
     })
-    console.log(user)
+    //console.log(user)
 
     // 찾기
     const users = await db.user.findMany({
@@ -49,7 +49,7 @@ async function test(){
             },
         }
     })
-    console.log(user)
+    //console.log(user)
 }
 // test();
 

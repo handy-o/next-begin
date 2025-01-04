@@ -17,8 +17,11 @@ model User {
   avatar     String? // github의 경우 아바타 가져옴, 기본값으로 설정 가능
   created_at DateTime   @default(now()) // 사용자 생성 시 시간
   updated_at DateTime   @updatedAt // prisma는 사용자의 레코드가 업데이트된 시간을 기록하고자함
-  SMSToken   SMSToken[]
-  Product    Product[]
+  tokens     SMSToken[]
+  products   Product[]
+  posts      Post[]
+  Comment    Comment[]
+  Like       Like[]
 }
 
 model SMSToken {
@@ -40,4 +43,39 @@ model Product {
   updated_at  DateTime @updatedAt
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      Int
+}
+
+model Post {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+  views       Int       @default(0)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  comments    Comment[]
+  likes       Like[]
+}
+
+model Comment {
+  id         Int      @id @default(autoincrement())
+  payload    String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId     Int
+  postId     Int
+}
+
+model Like {
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId     Int
+  postId     Int
+
+  @@id(name: "id", [userId, postId])
 }
