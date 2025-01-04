@@ -46,7 +46,7 @@ export async function login(prevState: any, formData: FormData) {
       }
     })
     const ok = await bcrypt.compare(result.data.password, user!.password ?? ""); // user가 password를 가지지 않는다면, 빈 문자와 비교
-    console.log('ok', ok)
+    //console.log('ok', ok)
     if(ok) {
       // 세션 가져오기
       const session = await getSession();

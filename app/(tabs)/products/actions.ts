@@ -12,7 +12,7 @@ export async function getMoreProducts(page:number) {
             id: true
         },
         skip: page * 1, // 첫번째꺼 뛰어넘어서 두번째꺼부터 가져오기
-        take:1, // 하나의 항목만 가져옴
+        // take:1, // 하나의 항목만 가져옴
 
         // 25개씩 부른다고 하면, 아래처럼 설정
         // skip: page * 25,
