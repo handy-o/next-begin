@@ -16,4 +16,4 @@
 
 # Direct connection to the database used by Prisma CLI for e.g. migrations.
 
-DIRECT_URL="postgres://neondb_owner:LMj76fOxUhGZ@ep-mute-rain-952417.us-east-2.aws.neon.tech/neondb"
+DIRECT_URL="postgres://neondb_owner:LMj76fOxUhGZ@ep-damp-voice-a1c1p6v5-pooler.ap-southeast-1.aws.neon.tech/neondb?pgbouncer=true&connect_timeout=15&sslmode=require"
