@@ -26,9 +26,8 @@ interface Comment {
 export default function AddComment({ tweetId, initialComments }: AddCommentProps) {
   // Optimistic state for comments
   const [state, updateOptimisticState] = useOptimistic(
-    { comments: initialComments },
-    (prevState, newComment) => {
-      // 올바르게 새로운 댓글을 추가하는 방식
+    { comments: initialComments }, 
+    (prevState: { comments: Comment[] }, newComment: Comment) => {
       return {
         comments: prevState.comments.concat(newComment), // 기존 댓글에 새로운 댓글 추가
       };
@@ -65,7 +64,6 @@ export default function AddComment({ tweetId, initialComments }: AddCommentProps
     setCommentText(""); // 댓글 입력창 비우기
   };
   console.log(state)
-
   return (
     <div>
       <textarea
