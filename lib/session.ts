@@ -5,7 +5,7 @@ interface SessionContent {
     id?:number 
 }
 
-export default async function getSession() {
+export default async function getSession(req?: Request) {
     // console.log('쿠키', cookies());
     return getIronSession<SessionContent>(await cookies(), {
         cookieName: "merry_chrestmas", 

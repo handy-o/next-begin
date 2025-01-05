@@ -22,3 +22,9 @@
 - username : abcde (5글자 이상)
 - email : abcde@zod.com (@zod만 허용)
 - password : 123qweasd1 (10글자 이상)
+
+---
+
+- username : aabbcc
+- email : aabbcc@zod.com
+- password : 123qweasd1 (10글자 이상)
